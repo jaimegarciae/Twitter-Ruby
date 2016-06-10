@@ -1,8 +1,8 @@
 <h1>Edit</h1>
 <h2><%= @tweet.id %></h2>
 
-<%= form_tag("/tweets/#{@tweet.id}", method: :put) do %>
-  <%= text_area_tag 'Tweet', @tweet.content %>
+<%= form_for @tweet do |f| %>
+  <%= f.text_area :content %>
   <br>
-  <%= submit_tag "Tweet it" %>
+  <%= f.submit "Tweet it" %>
 <% end %>

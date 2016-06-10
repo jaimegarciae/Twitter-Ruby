@@ -14,9 +14,9 @@
         <td><%= tweet.id %></td>
         <td><%= tweet.content %></td>
         <td><%= time_ago_in_words tweet.created_at %></td>
-        <td><%= link_to "Delete", "/tweets/#{tweet.id}", method: :delete %> </td>
-        <td><%= link_to "Show", "/tweets/#{tweet.id}" %></td>
-        <td><%= link_to "Edit", "/tweets/#{tweet.id}/edit" %> </td>
+        <td><%= link_to "Delete", tweet_path(tweet), method: :delete %> </td>
+        <td><%= link_to "Show", tweet_path(tweet) %></td>
+        <td><%= link_to "Edit", edit_tweet_path(tweet) %> </td>
       </tr>
     <%end%>
   </tbody>

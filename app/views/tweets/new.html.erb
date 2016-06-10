@@ -1,7 +1,7 @@
 <h1>New Tweet</h1>
 
-<%= form_tag('/tweets', method: :post) do %>
-  <%= text_area_tag "content" %>
+<%= form_for @tweet do |f| %>
+  <%= f.text_area :content %>
   <br>
-  <%= submit_tag "Tweet it" %>
+  <%= f.submit "Tweet it" %>
 <% end %>
