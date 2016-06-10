@@ -1,6 +1,12 @@
-<h1>Tweets Listing</h1>
+<h1>Tweets Listing <span id="tweets-count">(<%= @tweets.count %>)</span></h1>
 
-<table>
+<%= form_for @tweet, remote: true do |f| %>
+  <%= f.text_area :content %>
+  <br>
+  <%= f.submit "Tweet it" %>
+<% end %>
+
+<table id="tweets-container">
   <thead>
     <tr>
       <th>ID</th>
