@@ -1,7 +1,3 @@
 <h1>New Tweet</h1>
 
-<%= form_for @tweet do |f| %>
-  <%= f.text_area :content %>
-  <br>
-  <%= f.submit "Tweet it" %>
-<% end %>
+<%= render 'form' %>
