@@ -1,5 +1,5 @@
 <div id="<%= tweet.id %>" class="tweets">
-  <small class='time-ago'><%= time_ago_in_words tweet.created_at %></small>
+  <small class='time-ago'><%= time_ago_in_words tweet.created_at %> ago</small>
   <section><%= tweet.content %></section>
   <section>
     <a><%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, tweet_path(tweet), method: :delete, remote: true, :class => 'icons' %> </a>
