@@ -1,20 +1,15 @@
-<h1>Tweets Listing <span id="tweets-count">(<%= @tweets.count %>)</span></h1>
+<br>
+<div class = "timeline">
+  <section class="form">
+    <%= form_for @tweet, remote: true do |f| %>
+      <%= f.text_area :content, placeholder: "What's new minion?", :class => 'text_area' %>
+      <br>
+      <%= f.submit "Tweet it", :class => 'btn btn-info button' %>
+    <% end %>
+  </section>
 
-<%= form_for @tweet, remote: true do |f| %>
-  <%= f.text_area :content %>
-  <br>
-  <%= f.submit "Tweet it" %>
-<% end %>
-
-<table id="tweets-container">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Content</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody>
+  <div id="tweets-container">
     <%= render @tweets %>
-  </tbody>
-</table>
+  </div>
+</div>
+<br>
