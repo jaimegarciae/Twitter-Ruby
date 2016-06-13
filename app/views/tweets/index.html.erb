@@ -2,7 +2,7 @@
 <div class = "frontpage">
   <section class="form">
     <%= form_for @tweet, remote: true do |f| %>
-      <%= f.text_area :content, placeholder: "What's new minion?", :class => 'text_area' %>
+      <%= f.text_area :content, placeholder: "What's new minion?", :class => 'text-area' %>
       <br>
       <%= f.submit "Tweet it", :class => 'btn btn-info button' %>
     <% end %>

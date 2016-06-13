@@ -21,7 +21,7 @@ body {
   margin: 10px;
 }
 
-.text_area {
+.text-area {
   border-radius: 10px;
   margin-bottom: 5px;
   resize: none;
@@ -29,6 +29,10 @@ body {
   width: 100%;
   padding: 10px;
  }
+
+.text-area:focus{
+  outline: 1px solid #b0daf7;
+}
 
 .button {
   float: right;
