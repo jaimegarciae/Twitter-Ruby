@@ -1,12 +1,14 @@
 <br>
 <div class = "frontpage">
-  <section class="form">
-    <%= form_for @tweet, remote: true do |f| %>
-      <%= f.text_area :content, placeholder: "What's new minion?", :class => 'text-area' %>
-      <br>
-      <%= f.submit "Tweet it", :class => 'btn btn-info button' %>
-    <% end %>
-  </section>
+  <% if current_user %>
+    <section class="form">
+      <%= form_for @tweet, remote: true do |f| %>
+        <%= f.text_area :content, placeholder: "What's new minion?", :class => 'text-area' %>
+        <br>
+        <%= f.submit "Tweet it", :class => 'btn btn-info button' %>
+      <% end %>
+    </section>
+  <% end %>
 
   <div id="tweets-container">
     <%= render @tweets %>
