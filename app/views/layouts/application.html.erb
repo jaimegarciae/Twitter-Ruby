@@ -13,14 +13,13 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Twitter</a>
+      <a><%= link_to "Twitter", tweets_path, method: :get, class: 'navbar-brand' %></a>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-    </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-        <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary navbar-btn margin-right' %>
+        <li><a>Hello <%= current_user.email %></a></li>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-primary navbar-btn margin-right' %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-primary navbar-btn margin-right' %>
       <% else %>
         <%= link_to "Log in", new_user_session_path, class: 'btn btn-primary navbar-btn margin-right', method: :get %>
       <% end %>

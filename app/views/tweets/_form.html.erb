@@ -1,5 +1,9 @@
-<%= form_for @tweet do |f| %>
-  <%= f.text_area :content %>
-  <br>
-  <%= f.submit "Tweet it" %>
+<% if current_user %>
+  <%= form_for @tweet do |f| %>
+    <%= f.text_area :content %>
+    <br>
+    <%= f.submit "Tweet it" %>
+  <% end %>
+<% else %>
+  <h3>You need to log in to tweet.</h3>
 <% end %>
