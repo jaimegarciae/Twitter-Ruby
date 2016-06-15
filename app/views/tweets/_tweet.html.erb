@@ -1,8 +1,11 @@
 <div id="<%= tweet.id %>" class="tweets">
+  <a><%= link_to  "#{tweet.user.name}", user_path(tweet.user.id) %></a>
   <small class='time-ago'><%= time_ago_in_words tweet.created_at %> ago</small>
   <section><%= tweet.content %></section>
   <section>
-    <a><%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, tweet_path(tweet), method: :delete, remote: true, :class => 'icons' %> </a>
-    <a><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_tweet_path(tweet), :class => 'icons' %> </a>
+    <% if (user_signed_in? && (current_user.id == tweet.user_id)) %>
+      <a><%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, tweet_path(tweet), method: :delete, remote: true, :class => 'icons' %> </a>
+      <a><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_tweet_path(tweet), :class => 'icons' %> </a>
+    <% end %>
   </section>
 </div>

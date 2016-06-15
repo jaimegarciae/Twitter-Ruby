@@ -61,6 +61,7 @@ body {
 .tweets {
   border-bottom: 1px solid #e1e8ed;
   padding: 20px;
+  word-wrap: break-word;
 }
 
 .tweets:hover {

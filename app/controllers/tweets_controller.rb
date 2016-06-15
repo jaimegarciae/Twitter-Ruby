@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create]
 
   def index
     @tweets = Tweet.all
@@ -11,11 +11,11 @@ class TweetsController < ApplicationController
   end
 
   def new
-    @tweet = Tweet.new
+    @tweet = current_user.tweets.build
   end
 
   def create
-    @tweet = Tweet.new(tweet_params)
+    @tweet = current_user.tweets.build(tweet_params)
     if @tweet.save
       respond_to do |format|
         format.html { redirect_to @tweet }
@@ -39,7 +39,7 @@ class TweetsController < ApplicationController
   def update
     @tweet = Tweet.find(params[:id])
     if @tweet.update(tweet_params)
-      redirect_to edit_tweet_path
+      redirect_to tweets_path
     else
       render :edit
     end

@@ -1,4 +1,8 @@
 <h1>Edit</h1>
 <h2><%= @tweet.id %></h2>
 
-<%= render 'form' %>
+<% if (user_signed_in? && (current_user.id == @tweet.user_id)) %>
+  <%= render 'form' %>
+<% else %>
+  <h3>You cannot edit this tweet.</h3>
+<% end %>
