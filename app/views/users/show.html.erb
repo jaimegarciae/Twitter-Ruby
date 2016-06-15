@@ -1,9 +1,19 @@
-<h1><%= @user.name %></h1>
-<p>Number of tweets: <%= @user.tweets.count %></p>
-
-<% @user.tweets.each do |tweet| %>
-  <%= tweet.content %>
-  </br>
-<% end %>
-
-<%= link_to "Profiles", users_profiles_path %>
+<div class="frontpage">
+  <h1 class="text-center"><%= @user.name %></h1>
+  <div>
+    <p class="text-center">Number of tweets: <%= @user.tweets.count %></p>
+    <% @user.tweets.each do |tweet| %>
+      <div class="tweets">
+        <a><%= link_to  "#{tweet.user.name}", user_path(tweet.user.id) %></a>
+        <small class='time-ago'><%= time_ago_in_words tweet.created_at %> ago</small>
+        <section><%= tweet.content %></section>
+        <section>
+          <% if (user_signed_in? && (current_user.id == tweet.user_id)) %>
+            <a><%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, tweet_path(tweet), method: :delete, remote: true, :class => 'icons' %> </a>
+            <a><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_tweet_path(tweet), :class => 'icons' %> </a>
+          <% end %>
+        </section>
+      </div>
+    <% end %>
+  </div>
+</div>
