@@ -1,4 +1,6 @@
 class TweetsController < ApplicationController
+  #before_action :authenticate_user!
+
   def index
     @tweets = Tweet.all
     @tweet = Tweet.new
@@ -13,7 +15,6 @@ class TweetsController < ApplicationController
   end
 
   def create
-    before_action :authenticate_user!
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
       respond_to do |format|

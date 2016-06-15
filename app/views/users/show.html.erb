@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+<p>Number of tweets: <%= @user.tweets.count %></p>
+
+<% @user.tweets.each do |tweet| %>
+  <%= tweet.content %>
+  </br>
+<% end %>
