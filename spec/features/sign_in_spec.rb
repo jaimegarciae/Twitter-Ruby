@@ -12,7 +12,11 @@ describe "the signin process", :type => :feature do
 		expect(page).to have_content "Log out"
 	end
 
-	context "when is not success" do
-
+	it "when is not success" do
+		visit "/users/sign_in"
+		fill_in "user_email", with: @user.email
+		fill_in "user_password", with: "sadfasdfasf"
+		click_button "Log in"
+		expect(page).to have_content "Log in"
 	end
 end

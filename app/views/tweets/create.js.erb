@@ -1,3 +1,7 @@
-$("#tweets-count").text("(<%= Tweet.all.count %>)");
-$("#tweets-container").prepend("<%= j render @tweet %>");
-$("#new_tweet")[0].reset();
+<% if @tweet.valid? %> 
+	$("#tweets-count").text("(<%= Tweet.all.count %>)");
+	$("#tweets-container").prepend("<%= j render @tweet %>");
+	$("#new_tweet")[0].reset();
+<% else %> 
+	alert("Tweet should be between 1 and 140 characters");
+<% end %>
